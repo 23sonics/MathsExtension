@@ -1,0 +1,9 @@
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\bin\Release\netcoreapp3.1\MathsEx.deps.json
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\bin\Release\netcoreapp3.1\MathsEx.dll
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\bin\Release\netcoreapp3.1\MathsEx.pdb
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\obj\Release\netcoreapp3.1\MathsEx.AssemblyInfoInputs.cache
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\obj\Release\netcoreapp3.1\MathsEx.AssemblyInfo.cs
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\obj\Release\netcoreapp3.1\MathsEx.csproj.CoreCompileInputs.cache
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\obj\Release\netcoreapp3.1\MathsEx.dll
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\obj\Release\netcoreapp3.1\MathsEx.pdb
+C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\obj\Release\netcoreapp3.1\MathsEx.csprojAssemblyReference.cache
