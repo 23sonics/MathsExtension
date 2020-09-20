@@ -11,11 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("MathsEx")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("23Sonics")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("(C) 2020 23Sonics")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("MathsEx")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyProductAttribute("Maths Extension")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MathsEx")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

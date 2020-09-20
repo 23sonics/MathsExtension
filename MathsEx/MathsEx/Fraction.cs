@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MathsEx
 {
@@ -29,6 +27,9 @@ namespace MathsEx
         /// <param name="denominator"></param>
         public Fraction(long numerator, long denominator)
         {
+            if (denominator < 1)
+                throw new FractionException("Denominator value must be greater than zero.");
+
             _num = numerator;
             _denom = denominator;
         }
@@ -280,50 +281,73 @@ namespace MathsEx
     }
 
     /// <summary>
-    /// Represents a <see cref="Fraction"/> mixed with a <see cref="long"/>.
+    /// Represents a <see cref="MathsEx.Fraction"/> mixed with a <see cref="long"/>.
     /// </summary>
     public class MixedNumber
     {
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="MixedNumber"/> class with the
+        /// value of one and a half.
         /// </summary>
         public MixedNumber()
         {
-            _fraction = new Fraction();
+            _fraction = new Fraction(1, 2);
             _numeral = 1;
         }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="MixedNumber"/> class with the
+        /// value of the specified integer and a half.
         /// </summary>
         /// <param name="numeral"></param>
         public MixedNumber(long numeral)
-        { }
+        {
+            if (numeral < 1)
+                throw new FractionException("Integer numeral of a mixed numeral cannot be zero.");
+
+            _fraction = new Fraction(1, 2);
+            _numeral = numeral;
+        }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="MixedNumber"/> class with the
+        /// value of the specified integer and fraction.
         /// </summary>
         /// <param name="numeral"></param>
         /// <param name="fraction"></param>
         public MixedNumber(long numeral, Fraction fraction)
-        { }
+        {
+            if (numeral < 1)
+                throw new FractionException("Integer numeral of a mixed numeral cannot be zero.");
+
+            _fraction = fraction;
+            _numeral = numeral;
+        }
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="MixedNumber"/> class with the
+        /// value of the specified integral numeral and a fraction with the specified
+        /// numerator and denominator.
         /// </summary>
         /// <param name="numeral"></param>
         /// <param name="numerator"></param>
         /// <param name="denominator"></param>
         public MixedNumber(long numeral, long numerator, long denominator)
-        { }
+        {
+            if (numeral < 1)
+                throw new FractionException("Integer numeral of a mixed numeral cannot be zero.");
+
+            _numeral = numeral;
+            _fraction = new Fraction(numerator, denominator);
+        }
 
 
         private Fraction _fraction;
 
         /// <summary>
-        /// 
+        /// The fractional part of this mixed number.
         /// </summary>
-        public Fraction Part
+        public Fraction Fraction
         {
             get { return _fraction; }
             set
@@ -337,7 +361,7 @@ namespace MathsEx
         private long _numeral;
 
         /// <summary>
-        /// 
+        /// The integral numeral in this mixed number.
         /// </summary>
         public long Numeral
         {
@@ -350,61 +374,61 @@ namespace MathsEx
         }
 
         /// <summary>
-        /// 
+        /// Converts this <see cref="MixedNumber"/> object to a <see cref="MathsEx.Fraction"/> object.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A pure fractional representation of the mixed number.</returns>
         public Fraction ToFraction()
         {
             return new Fraction(
-                this.Numeral / this.Part.Denominator + this.Part.Numerator,
-                this.Part.Denominator * this.Numeral
+                this.Numeral / this.Fraction.Denominator + this.Fraction.Numerator,
+                this.Fraction.Denominator * this.Numeral
                 );
         }
 
         #region Operators for class MixedNumber
 
         /// <summary>
-        /// 
+        /// Calculates the sum of a <see cref="MathsEx.Fraction"/> and a <see cref="MixedNumber"/>.
         /// </summary>
         /// <param name="fraction"></param>
         /// <param name="mixed"></param>
-        /// <returns></returns>
+        /// <returns>The pure fractional representation of the sum of the specified values in its simplest form.</returns>
         public static Fraction operator +(Fraction fraction, MixedNumber mixed)
         {
-            return fraction + mixed.ToFraction();
+            return Fraction.Simplify(fraction + mixed.ToFraction());
         }
 
         /// <summary>
-        /// 
+        /// Calculates the sum of two <see cref="MixedNumber"/> objects.
         /// </summary>
         /// <param name="mx1"></param>
         /// <param name="mx2"></param>
         /// <returns></returns>
         public static MixedNumber operator +(MixedNumber mx1, MixedNumber mx2)
         {
-            return new MixedNumber(mx1.Numeral + mx2.Numeral, mx1.Part + mx2.Part);
+            return new MixedNumber(mx1.Numeral + mx2.Numeral, mx1.Fraction + mx2.Fraction);
         }
 
         /// <summary>
-        /// 
+        /// Calculates the difference between a <see cref="MathsEx.Fraction"/> and a <see cref="MixedNumber"/>.
         /// </summary>
         /// <param name="fraction"></param>
         /// <param name="mixed"></param>
-        /// <returns></returns>
+        /// <returns>The pure fractional representation of the difference between the specified values in its simplest form.</returns>
         public static Fraction operator -(Fraction fraction, MixedNumber mixed)
         {
-            return fraction - mixed.ToFraction();
+            return Fraction.Simplify(fraction - mixed.ToFraction());
         }
 
         /// <summary>
-        /// 
+        /// Calculates the difference between two <see cref="MixedNumber"/> objects.
         /// </summary>
         /// <param name="mx1"></param>
         /// <param name="mx2"></param>
         /// <returns></returns>
         public static MixedNumber operator -(MixedNumber mx1, MixedNumber mx2)
         {
-            return new MixedNumber(mx1.Numeral - mx2.Numeral, mx1.Part - mx2.Part);
+            return new MixedNumber(mx1.Numeral - mx2.Numeral, mx1.Fraction - mx2.Fraction);
         }
 
         #endregion

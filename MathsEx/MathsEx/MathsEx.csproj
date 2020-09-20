@@ -2,12 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>0.5</Version>
+    <Version>1.0</Version>
     <Company />
     <Authors>23Sonics</Authors>
     <Product>Maths Extension</Product>
     <Copyright>(C) 2020 23Sonics</Copyright>
     <PackageProjectUrl>https://github.com/23sonics/MathsExtension</PackageProjectUrl>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <RepositoryUrl>https://github.com/23sonics/MathsExtension.git</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\cstoc\Documents\caionly\git\MathsExtension\MathsEx\MathsEx\MathsEx.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
