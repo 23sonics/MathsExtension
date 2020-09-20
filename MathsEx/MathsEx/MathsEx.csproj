@@ -10,8 +10,4 @@
     <PackageProjectUrl>https://github.com/23sonics/MathsExtension</PackageProjectUrl>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Fraction.cs" />
-  </ItemGroup>
-
 </Project>
